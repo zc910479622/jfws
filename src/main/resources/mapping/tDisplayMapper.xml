@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinfei.jfws.dao.tDisplayMapper" >
+  <resultMap id="BaseResultMap" type="com.jinfei.jfws.model.tDisplay" >
+    <id column="display_id" property="displayId" jdbcType="TINYINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="house_name" property="houseName" jdbcType="VARCHAR" />
+    <result column="in_lamp_lasttime" property="inLampLasttime" jdbcType="TIMESTAMP" />
+    <result column="out_lamp_lasttime" property="outLampLasttime" jdbcType="TIMESTAMP" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="lasttime" property="lasttime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.jinfei.jfws.model.tDisplay" extends="BaseResultMap" >
+    <result column="subitems" property="subitems" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    display_id, type, house_name, in_lamp_lasttime, out_lamp_lasttime, color, lasttime
+  </sql>
+  <sql id="Blob_Column_List" >
+    subitems
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Byte" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_display
+    where display_id = #{displayId,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte" >
+    delete from t_display
+    where display_id = #{displayId,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.jinfei.jfws.model.tDisplay" >
+    insert into t_display (display_id, type, house_name, 
+      in_lamp_lasttime, out_lamp_lasttime, color, 
+      lasttime, subitems)
+    values (#{displayId,jdbcType=TINYINT}, #{type,jdbcType=TINYINT}, #{houseName,jdbcType=VARCHAR}, 
+      #{inLampLasttime,jdbcType=TIMESTAMP}, #{outLampLasttime,jdbcType=TIMESTAMP}, #{color,jdbcType=VARCHAR}, 
+      #{lasttime,jdbcType=TIMESTAMP}, #{subitems,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jinfei.jfws.model.tDisplay" >
+    insert into t_display
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="displayId != null" >
+        display_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="houseName != null" >
+        house_name,
+      </if>
+      <if test="inLampLasttime != null" >
+        in_lamp_lasttime,
+      </if>
+      <if test="outLampLasttime != null" >
+        out_lamp_lasttime,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="lasttime != null" >
+        lasttime,
+      </if>
+      <if test="subitems != null" >
+        subitems,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="displayId != null" >
+        #{displayId,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="houseName != null" >
+        #{houseName,jdbcType=VARCHAR},
+      </if>
+      <if test="inLampLasttime != null" >
+        #{inLampLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outLampLasttime != null" >
+        #{outLampLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        #{lasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subitems != null" >
+        #{subitems,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jinfei.jfws.model.tDisplay" >
+    update t_display
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="houseName != null" >
+        house_name = #{houseName,jdbcType=VARCHAR},
+      </if>
+      <if test="inLampLasttime != null" >
+        in_lamp_lasttime = #{inLampLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outLampLasttime != null" >
+        out_lamp_lasttime = #{outLampLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        lasttime = #{lasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subitems != null" >
+        subitems = #{subitems,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where display_id = #{displayId,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jinfei.jfws.model.tDisplay" >
+    update t_display
+    set type = #{type,jdbcType=TINYINT},
+      house_name = #{houseName,jdbcType=VARCHAR},
+      in_lamp_lasttime = #{inLampLasttime,jdbcType=TIMESTAMP},
+      out_lamp_lasttime = #{outLampLasttime,jdbcType=TIMESTAMP},
+      color = #{color,jdbcType=VARCHAR},
+      subitems = #{subitems,jdbcType=LONGVARCHAR},
+      lasttime = #{lasttime,jdbcType=TIMESTAMP}
+    where display_id = #{displayId,jdbcType=TINYINT}
+  </update>
+  <select id="selectDisplay" resultMap="BaseResultMap">
+    select * from t_display
+  </select>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinfei.jfws.dao.tSupplyMapper" >
+  <resultMap id="BaseResultMap" type="com.jinfei.jfws.model.tSupply" >
+    <id column="supply_id" property="supplyId" jdbcType="BIGINT" />
+    <result column="supply_nbr" property="supplyNbr" jdbcType="VARCHAR" />
+    <result column="supply_code" property="supplyCode" jdbcType="VARCHAR" />
+    <result column="supply_name" property="supplyName" jdbcType="VARCHAR" />
+    <result column="supply_address" property="supplyAddress" jdbcType="VARCHAR" />
+    <result column="supply_shortname" property="supplyShortname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    supply_id, supply_nbr, supply_code, supply_name, supply_address, supply_shortname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_supply
+    where supply_id = #{supplyId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_supply
+    where supply_id = #{supplyId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jinfei.jfws.model.tSupply" >
+    insert into t_supply (supply_id, supply_nbr, supply_code, 
+      supply_name, supply_address, supply_shortname
+      )
+    values (#{supplyId,jdbcType=BIGINT}, #{supplyNbr,jdbcType=VARCHAR}, #{supplyCode,jdbcType=VARCHAR}, 
+      #{supplyName,jdbcType=VARCHAR}, #{supplyAddress,jdbcType=VARCHAR}, #{supplyShortname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jinfei.jfws.model.tSupply" >
+    insert into t_supply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="supplyId != null" >
+        supply_id,
+      </if>
+      <if test="supplyNbr != null" >
+        supply_nbr,
+      </if>
+      <if test="supplyCode != null" >
+        supply_code,
+      </if>
+      <if test="supplyName != null" >
+        supply_name,
+      </if>
+      <if test="supplyAddress != null" >
+        supply_address,
+      </if>
+      <if test="supplyShortname != null" >
+        supply_shortname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="supplyId != null" >
+        #{supplyId,jdbcType=BIGINT},
+      </if>
+      <if test="supplyNbr != null" >
+        #{supplyNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyCode != null" >
+        #{supplyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyName != null" >
+        #{supplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyAddress != null" >
+        #{supplyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyShortname != null" >
+        #{supplyShortname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jinfei.jfws.model.tSupply" >
+    update t_supply
+    <set >
+      <if test="supplyNbr != null" >
+        supply_nbr = #{supplyNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyCode != null" >
+        supply_code = #{supplyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyName != null" >
+        supply_name = #{supplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyAddress != null" >
+        supply_address = #{supplyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyShortname != null" >
+        supply_shortname = #{supplyShortname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where supply_id = #{supplyId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jinfei.jfws.model.tSupply" >
+    update t_supply
+    set
+      supply_shortname = #{supplyShortname,jdbcType=VARCHAR}
+    where supply_id = #{supplyId,jdbcType=BIGINT}
+  </update>
+  <select id="selectSupply" resultMap="BaseResultMap">
+    select * from t_supply
+  </select>
+</mapper>

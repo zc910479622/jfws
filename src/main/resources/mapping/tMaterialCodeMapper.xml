@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinfei.jfws.dao.tMaterialCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.jinfei.jfws.model.tMaterialCode" >
+    <id column="mate_code" property="mateCode" jdbcType="VARCHAR" />
+    <result column="mate_code_name" property="mateCodeName" jdbcType="VARCHAR" />
+    <result column="mate_code_shortname" property="mateCodeShortname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mate_code, mate_code_name, mate_code_shortname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_material_code
+    where mate_code = #{mateCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_material_code
+    where mate_code = #{mateCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jinfei.jfws.model.tMaterialCode" >
+    insert into t_material_code (mate_code, mate_code_name, mate_code_shortname
+      )
+    values (#{mateCode,jdbcType=VARCHAR}, #{mateCodeName,jdbcType=VARCHAR}, #{mateCodeShortname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jinfei.jfws.model.tMaterialCode" >
+    insert into t_material_code
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mateCode != null" >
+        mate_code,
+      </if>
+      <if test="mateCodeName != null" >
+        mate_code_name,
+      </if>
+      <if test="mateCodeShortname != null" >
+        mate_code_shortname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mateCode != null" >
+        #{mateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mateCodeName != null" >
+        #{mateCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="mateCodeShortname != null" >
+        #{mateCodeShortname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jinfei.jfws.model.tMaterialCode" >
+    update t_material_code
+    <set >
+      <if test="mateCodeName != null" >
+        mate_code_name = #{mateCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="mateCodeShortname != null" >
+        mate_code_shortname = #{mateCodeShortname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mate_code = #{mateCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jinfei.jfws.model.tMaterialCode" >
+    update t_material_code
+    set
+      mate_code_shortname = #{mateCodeShortname,jdbcType=VARCHAR}
+    where mate_code = #{mateCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectMaterial" resultMap="BaseResultMap">
+    select * from t_material_code;
+  </select>
+</mapper>

@@ -1,0 +1,26 @@
+.modal-body{
+    padding-left:15px;
+}
+#modal_editDisplay_form>div{
+
+}
+
+.modal-dialog{
+    width: 60%;
+}
+
+.modal-dialog .panel-heading{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.panel-body > .form-group > .ui-dlist-tit{
+    margin-left: 2.2%;
+    width: 3em;
+}
+
+.panel-body > .form-group > .form-control{
+    margin-right: 2.2%;
+    width: 16%;
+}

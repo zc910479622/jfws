@@ -1,0 +1,65 @@
+.nav-pills > li > a {
+    color: #0f0f0f;
+    font-weight: bold;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #000;
+    background-color: #e7e7e7;
+}
+
+form hr {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+form h4 {
+    margin-left: 15px;
+}
+
+
+form .form-group {
+    padding-left: 30px;
+    height: 3em;
+    width: 30%;
+}
+
+.form-inline .form-control{
+    width: 8.5em;
+}
+
+.bootstrap-select > .dropdown-toggle{
+    width: 8.5em;
+}
+
+form > div {
+    float: left;
+}
+
+
+#config_form_btn, #sys_form_btn {
+    position: fixed;
+    right: 22%;
+    bottom: 5%;
+    z-index: 100;
+}
+#unlock {
+    position: fixed;
+    right: 30%;
+    bottom: 5%;
+    z-index: 100;
+}
+
+#successMessage ,#errorMessage{
+    width: 20%;
+    position: fixed;
+    margin: 5% 40%;
+    top: 3%;
+    z-index: 9999;
+}
+
+hr {
+    background-color: #dddddd;
+    height: 1px;
+    border: none;
+}

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinfei.jfws.dao.tConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.jinfei.jfws.model.tConfig" >
+    <result column="top_percent" property="topPercent" jdbcType="DOUBLE" />
+    <result column="bottom_percent" property="bottomPercent" jdbcType="DOUBLE" />
+    <result column="logo_text" property="logoText" jdbcType="VARCHAR" />
+    <result column="logo_color" property="logoColor" jdbcType="VARCHAR" />
+    <result column="logo_font_size" property="logoFontSize" jdbcType="INTEGER" />
+    <result column="title_text" property="titleText" jdbcType="VARCHAR" />
+    <result column="title_color" property="titleColor" jdbcType="VARCHAR" />
+    <result column="title_font_size" property="titleFontSize" jdbcType="INTEGER" />
+    <result column="system_name_text" property="systemNameText" jdbcType="VARCHAR" />
+    <result column="system_name_color" property="systemNameColor" jdbcType="VARCHAR" />
+    <result column="system_name_font_size" property="systemNameFontSize" jdbcType="INTEGER" />
+    <result column="copyright_text" property="copyrightText" jdbcType="VARCHAR" />
+    <result column="copyright_color" property="copyrightColor" jdbcType="VARCHAR" />
+    <result column="copyright_font_size" property="copyrightFontSize" jdbcType="INTEGER" />
+    <result column="clientnum_color" property="clientnumColor" jdbcType="VARCHAR" />
+    <result column="clientnum_font_size" property="clientnumFontSize" jdbcType="INTEGER" />
+    <result column="field_color" property="fieldColor" jdbcType="VARCHAR" />
+    <result column="field_font_size" property="fieldFontSize" jdbcType="INTEGER" />
+    <result column="text_color" property="textColor" jdbcType="VARCHAR" />
+    <result column="text_font_size" property="textFontSize" jdbcType="INTEGER" />
+    <result column="row_backcolor" property="rowBackcolor" jdbcType="VARCHAR" />
+    <result column="line_color1" property="lineColor1" jdbcType="VARCHAR" />
+    <result column="line_color2" property="lineColor2" jdbcType="VARCHAR" />
+    <result column="line_color3" property="lineColor3" jdbcType="VARCHAR" />
+    <result column="table2_rownum" property="table2Rownum" jdbcType="INTEGER" />
+    <result column="table1_row_unitnum" property="table1RowUnitnum" jdbcType="INTEGER" />
+    <result column="table2_interval" property="table2Interval" jdbcType="INTEGER" />
+    <result column="close_start" property="closeStart" jdbcType="VARCHAR" />
+    <result column="close_end" property="closeEnd" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jinfei.jfws.model.tConfig" >
+    insert into t_config (top_percent, bottom_percent, logo_text, 
+      logo_color, logo_font_size, title_text, 
+      title_color, title_font_size, system_name_text, 
+      system_name_color, system_name_font_size, copyright_text, 
+      copyright_color, copyright_font_size, clientnum_color, 
+      clientnum_font_size, field_color, field_font_size, 
+      text_color, text_font_size, row_backcolor, 
+      line_color1, line_color2, line_color3, 
+      table2_rownum, table1_row_unitnum, table2_interval
+      )
+    values (#{topPercent,jdbcType=DOUBLE}, #{bottomPercent,jdbcType=DOUBLE}, #{logoText,jdbcType=VARCHAR}, 
+      #{logoColor,jdbcType=VARCHAR}, #{logoFontSize,jdbcType=INTEGER}, #{titleText,jdbcType=VARCHAR}, 
+      #{titleColor,jdbcType=VARCHAR}, #{titleFontSize,jdbcType=INTEGER}, #{systemNameText,jdbcType=VARCHAR}, 
+      #{systemNameColor,jdbcType=VARCHAR}, #{systemNameFontSize,jdbcType=INTEGER}, #{copyrightText,jdbcType=VARCHAR}, 
+      #{copyrightColor,jdbcType=VARCHAR}, #{copyrightFontSize,jdbcType=INTEGER}, #{clientnumColor,jdbcType=VARCHAR}, 
+      #{clientnumFontSize,jdbcType=INTEGER}, #{fieldColor,jdbcType=VARCHAR}, #{fieldFontSize,jdbcType=INTEGER}, 
+      #{textColor,jdbcType=VARCHAR}, #{textFontSize,jdbcType=INTEGER}, #{rowBackcolor,jdbcType=VARCHAR}, 
+      #{lineColor1,jdbcType=VARCHAR}, #{lineColor2,jdbcType=VARCHAR}, #{lineColor3,jdbcType=VARCHAR}, 
+      #{table2Rownum,jdbcType=INTEGER}, #{table1RowUnitnum,jdbcType=INTEGER}, #{table2Interval,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jinfei.jfws.model.tConfig" >
+    insert into t_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="topPercent != null" >
+        top_percent,
+      </if>
+      <if test="bottomPercent != null" >
+        bottom_percent,
+      </if>
+      <if test="logoText != null" >
+        logo_text,
+      </if>
+      <if test="logoColor != null" >
+        logo_color,
+      </if>
+      <if test="logoFontSize != null" >
+        logo_font_size,
+      </if>
+      <if test="titleText != null" >
+        title_text,
+      </if>
+      <if test="titleColor != null" >
+        title_color,
+      </if>
+      <if test="titleFontSize != null" >
+        title_font_size,
+      </if>
+      <if test="systemNameText != null" >
+        system_name_text,
+      </if>
+      <if test="systemNameColor != null" >
+        system_name_color,
+      </if>
+      <if test="systemNameFontSize != null" >
+        system_name_font_size,
+      </if>
+      <if test="copyrightText != null" >
+        copyright_text,
+      </if>
+      <if test="copyrightColor != null" >
+        copyright_color,
+      </if>
+      <if test="copyrightFontSize != null" >
+        copyright_font_size,
+      </if>
+      <if test="clientnumColor != null" >
+        clientnum_color,
+      </if>
+      <if test="clientnumFontSize != null" >
+        clientnum_font_size,
+      </if>
+      <if test="fieldColor != null" >
+        field_color,
+      </if>
+      <if test="fieldFontSize != null" >
+        field_font_size,
+      </if>
+      <if test="textColor != null" >
+        text_color,
+      </if>
+      <if test="textFontSize != null" >
+        text_font_size,
+      </if>
+      <if test="rowBackcolor != null" >
+        row_backcolor,
+      </if>
+      <if test="lineColor1 != null" >
+        line_color1,
+      </if>
+      <if test="lineColor2 != null" >
+        line_color2,
+      </if>
+      <if test="lineColor3 != null" >
+        line_color3,
+      </if>
+      <if test="table2Rownum != null" >
+        table2_rownum,
+      </if>
+      <if test="table1RowUnitnum != null" >
+        table1_row_unitnum,
+      </if>
+      <if test="table2Interval != null" >
+        table2_interval,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="topPercent != null" >
+        #{topPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="bottomPercent != null" >
+        #{bottomPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="logoText != null" >
+        #{logoText,jdbcType=VARCHAR},
+      </if>
+      <if test="logoColor != null" >
+        #{logoColor,jdbcType=VARCHAR},
+      </if>
+      <if test="logoFontSize != null" >
+        #{logoFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="titleText != null" >
+        #{titleText,jdbcType=VARCHAR},
+      </if>
+      <if test="titleColor != null" >
+        #{titleColor,jdbcType=VARCHAR},
+      </if>
+      <if test="titleFontSize != null" >
+        #{titleFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="systemNameText != null" >
+        #{systemNameText,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNameColor != null" >
+        #{systemNameColor,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNameFontSize != null" >
+        #{systemNameFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="copyrightText != null" >
+        #{copyrightText,jdbcType=VARCHAR},
+      </if>
+      <if test="copyrightColor != null" >
+        #{copyrightColor,jdbcType=VARCHAR},
+      </if>
+      <if test="copyrightFontSize != null" >
+        #{copyrightFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="clientnumColor != null" >
+        #{clientnumColor,jdbcType=VARCHAR},
+      </if>
+      <if test="clientnumFontSize != null" >
+        #{clientnumFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="fieldColor != null" >
+        #{fieldColor,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldFontSize != null" >
+        #{fieldFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="textColor != null" >
+        #{textColor,jdbcType=VARCHAR},
+      </if>
+      <if test="textFontSize != null" >
+        #{textFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="rowBackcolor != null" >
+        #{rowBackcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor1 != null" >
+        #{lineColor1,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor2 != null" >
+        #{lineColor2,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor3 != null" >
+        #{lineColor3,jdbcType=VARCHAR},
+      </if>
+      <if test="table2Rownum != null" >
+        #{table2Rownum,jdbcType=INTEGER},
+      </if>
+      <if test="table1RowUnitnum != null" >
+        #{table1RowUnitnum,jdbcType=INTEGER},
+      </if>
+      <if test="table2Interval != null" >
+        #{table2Interval,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectConfig" resultMap="BaseResultMap">
+    select * from t_config
+  </select>
+  <update id="updateConfig" parameterType="com.jinfei.jfws.model.tConfig">
+    update t_config
+    <set>
+      <if test="topPercent != null">
+        top_percent = #{topPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="bottomPercent != null">
+        bottom_percent = #{bottomPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="logoText != null">
+        logo_text = #{logoText,jdbcType=VARCHAR},
+      </if>
+      <if test="logoColor != null">
+        logo_color = #{logoColor,jdbcType=VARCHAR},
+      </if>
+      <if test="logoFontSize != null">
+        logo_font_size = #{logoFontSize,jdbcType=DOUBLE},
+      </if>
+      <if test="titleText != null">
+        title_text = #{titleText,jdbcType=VARCHAR},
+      </if>
+      <if test="titleColor != null">
+        title_color = #{titleColor,jdbcType=VARCHAR},
+      </if>
+      <if test="titleFontSize != null">
+        title_font_size = #{titleFontSize,jdbcType=DOUBLE},
+      </if>
+      <if test="systemNameText != null">
+        system_name_text = #{systemNameText,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNameColor != null">
+        system_name_color = #{systemNameColor,jdbcType=VARCHAR},
+      </if>
+      <if test="systemNameFontSize != null">
+        system_name_font_size = #{systemNameFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="copyrightText != null">
+        copyright_text = #{copyrightText,jdbcType=VARCHAR},
+      </if>
+      <if test="copyrightColor != null">
+        copyright_color = #{copyrightColor,jdbcType=VARCHAR},
+      </if>
+      <if test="copyrightFontSize != null">
+        copyright_font_size = #{copyrightFontSize,jdbcType=INTEGER},
+      </if>
+      <if test="clientnumColor != null">
+        clientnum_color = #{clientnumColor,jdbcType=VARCHAR},
+      </if>
+      <if test="clientnumFontSize != null">
+        clientnum_font_size = #{clientnumFontSize,jdbcType=DOUBLE},
+      </if>
+      <if test="fieldColor != null">
+        field_color = #{fieldColor,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldFontSize != null">
+        field_font_size = #{fieldFontSize,jdbcType=DOUBLE},
+      </if>
+      <if test="textColor != null">
+        text_color = #{textColor,jdbcType=VARCHAR},
+      </if>
+      <if test="textFontSize != null">
+        text_font_size = #{textFontSize,jdbcType=DOUBLE},
+      </if>
+      <if test="rowBackcolor != null">
+        row_backcolor = #{rowBackcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor1 != null">
+        line_color1 = #{lineColor1,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor2 != null">
+        line_color2 = #{lineColor2,jdbcType=VARCHAR},
+      </if>
+      <if test="lineColor3 != null">
+        line_color3 = #{lineColor3,jdbcType=VARCHAR},
+      </if>
+      <if test="table2Rownum != null">
+        table2_rownum = #{table2Rownum,jdbcType=INTEGER},
+      </if>
+      <if test="table1RowUnitnum != null">
+        table1_row_unitnum = #{table1RowUnitnum,jdbcType=INTEGER},
+      </if>
+      <if test="table2Interval != null">
+        table2_interval = #{table2Interval,jdbcType=INTEGER},
+      </if>
+      <if test="closeStart != null" >
+        close_start = #{closeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="closeEnd != null" >
+      close_End = #{closeEnd,jdbcType=VARCHAR},
+      </if>
+    </set>
+  </update>
+</mapper>

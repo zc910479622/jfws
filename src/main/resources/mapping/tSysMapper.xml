@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinfei.jfws.dao.tSysMapper">
+    <resultMap id="BaseResultMap" type="com.jinfei.jfws.model.tSys">
+        <result column="mes_server" property="mesServer" jdbcType="VARCHAR"/>
+        <result column="mes_port" property="mesPort" jdbcType="INTEGER"/>
+        <result column="mes_user" property="mesUser" jdbcType="VARCHAR"/>
+        <result column="mes_password" property="mesPassword" jdbcType="VARCHAR"/>
+        <result column="mes_database" property="mesDatabase" jdbcType="VARCHAR"/>
+        <result column="tcp_port" property="tcpPort" jdbcType="INTEGER"/>
+        <result column="serial_portname" property="serialPortname" jdbcType="VARCHAR"/>
+        <result column="serial_baudrate" property="serialBaudrate" jdbcType="INTEGER"/>
+        <result column="serial_parity" property="serialParity" jdbcType="VARCHAR"/>
+        <result column="serial_databits" property="serialDatabits" jdbcType="INTEGER"/>
+        <result column="serial_stopbits" property="serialStopbits" jdbcType="VARCHAR"/>
+        <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER"/>
+        <result column="checkin_timeout" property="checkinTimeout" jdbcType="INTEGER"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.jinfei.jfws.model.tSys">
+    insert into t_sys (mes_server, mes_port, mes_user, 
+      mes_password, mes_database, tcp_port, 
+      serial_portname, serial_baudrate, serial_parity, 
+      serial_databits, serial_stopbits, warehouse_id, 
+      checkin_timeout)
+    values (#{mesServer,jdbcType=VARCHAR}, #{mesPort,jdbcType=INTEGER}, #{mesUser,jdbcType=VARCHAR}, 
+      #{mesPassword,jdbcType=VARCHAR}, #{mesDatabase,jdbcType=VARCHAR}, #{tcpPort,jdbcType=INTEGER}, 
+      #{serialPortname,jdbcType=VARCHAR}, #{serialBaudrate,jdbcType=INTEGER}, #{serialParity,jdbcType=VARCHAR}, 
+      #{serialDatabits,jdbcType=INTEGER}, #{serialStopbits,jdbcType=VARCHAR}, #{warehouseId,jdbcType=INTEGER}, 
+      #{checkinTimeout,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jinfei.jfws.model.tSys">
+        insert into t_sys
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mesServer != null">
+                mes_server,
+            </if>
+            <if test="mesPort != null">
+                mes_port,
+            </if>
+            <if test="mesUser != null">
+                mes_user,
+            </if>
+            <if test="mesPassword != null">
+                mes_password,
+            </if>
+            <if test="mesDatabase != null">
+                mes_database,
+            </if>
+            <if test="tcpPort != null">
+                tcp_port,
+            </if>
+            <if test="serialPortname != null">
+                serial_portname,
+            </if>
+            <if test="serialBaudrate != null">
+                serial_baudrate,
+            </if>
+            <if test="serialParity != null">
+                serial_parity,
+            </if>
+            <if test="serialDatabits != null">
+                serial_databits,
+            </if>
+            <if test="serialStopbits != null">
+                serial_stopbits,
+            </if>
+            <if test="warehouseId != null">
+                warehouse_id,
+            </if>
+            <if test="checkinTimeout != null">
+                checkin_timeout,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mesServer != null">
+                #{mesServer,jdbcType=VARCHAR},
+            </if>
+            <if test="mesPort != null">
+                #{mesPort,jdbcType=INTEGER},
+            </if>
+            <if test="mesUser != null">
+                #{mesUser,jdbcType=VARCHAR},
+            </if>
+            <if test="mesPassword != null">
+                #{mesPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="mesDatabase != null">
+                #{mesDatabase,jdbcType=VARCHAR},
+            </if>
+            <if test="tcpPort != null">
+                #{tcpPort,jdbcType=INTEGER},
+            </if>
+            <if test="serialPortname != null">
+                #{serialPortname,jdbcType=VARCHAR},
+            </if>
+            <if test="serialBaudrate != null">
+                #{serialBaudrate,jdbcType=INTEGER},
+            </if>
+            <if test="serialParity != null">
+                #{serialParity,jdbcType=VARCHAR},
+            </if>
+            <if test="serialDatabits != null">
+                #{serialDatabits,jdbcType=INTEGER},
+            </if>
+            <if test="serialStopbits != null">
+                #{serialStopbits,jdbcType=VARCHAR},
+            </if>
+            <if test="warehouseId != null">
+                #{warehouseId,jdbcType=INTEGER},
+            </if>
+            <if test="checkinTimeout != null">
+                #{checkinTimeout,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="selectSys" resultMap="BaseResultMap">
+    select * from t_sys
+  </select>
+    <update id="updateSys" parameterType="com.jinfei.jfws.model.tSys">
+        update t_sys
+        <set>
+            <if test="mesServer != null">
+                mes_server = #{mesServer,jdbcType=VARCHAR},
+            </if>
+            <if test="mesPort != null">
+                mes_port = #{mesPort,jdbcType=INTEGER},
+            </if>
+            <if test="mesUser != null">
+                mes_user = #{mesUser,jdbcType=VARCHAR},
+            </if>
+            <if test="mesPassword != null">
+                mes_password = #{mesPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="mesDatabase != null">
+                mes_database = #{mesDatabase,jdbcType=VARCHAR},
+            </if>
+            <if test="tcpPort != null">
+                tcp_port = #{tcpPort,jdbcType=INTEGER},
+            </if>
+            <if test="serialPortname != null">
+                serial_portname = #{serialPortname,jdbcType=VARCHAR},
+            </if>
+            <if test="serialBaudrate != null">
+                serial_baudrate = #{serialBaudrate,jdbcType=INTEGER},
+            </if>
+            <if test="serialParity != null">
+                serial_parity = #{serialParity,jdbcType=VARCHAR},
+            </if>
+            <if test="serialDatabits != null">
+                serial_databits = #{serialDatabits,jdbcType=INTEGER},
+            </if>
+            <if test="serialStopbits != null">
+                serial_stopbits = #{serialStopbits,jdbcType=VARCHAR},
+            </if>
+            <if test="warehouseId != null">
+                warehouse_id = #{warehouseId,jdbcType=INTEGER},
+            </if>
+            <if test="checkinTimeout != null">
+                checkin_timeout = #{checkinTimeout,jdbcType=INTEGER},
+            </if>
+        </set>
+    </update>
+</mapper>
